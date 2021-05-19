@@ -1,0 +1,24 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+#container{
+    background-color: goldenrod;
+}
+#box1{
+    background-color: green;
+}
+#box2{
+    background-color: hotpink;
+}
+
+#box3{
+    background-color: lightseagreen;
+}
+
+div{
+    padding: 20px;
+    border: 2px, solid black;
+    margin: 10px;
+    text-align: center;
+}

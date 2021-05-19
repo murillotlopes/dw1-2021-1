@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio em HTML</title>
+</head>
+<body>
+    <h1>Audio em HTML5</h1>
+    <h2>Formatos comuns de arquivos de audio</h2>
+
+    <ul>
+        <li><strong>MP3</strong>. O formato de audio mais popular na atualidade. Foi desenvolvido pelo institu alemão Fraunhofer em 1993, como um formato de aúdio de compressão com perdas. No entanto, seu uso estava sujeito a patente até 2012, o que causou vários problemas legais. Atualmente, seu uso é livre. A sigla MP3 significa <em>MPEG Layer 3</em>, sendo que MPEG siginfica <em>Motion Picture Experts Groups</em> (Grupo de especialista em imagens em movimento).</li>
+        <li><strong>OGG</strong>. Também conhecido como OGG Vorbis, foi desenvolvido pela fundação Xiph.org e lançado em 200 como uma alternativa livre ao MP3. Apesar de ter  mais qualidade técnica, nunca alcançou a popularidade do concorrente. Também é um formato de compressão com perdas.</li>
+        <li><strong>WAV</strong>. Formato nativo de audio dos sistemas operacionais Microsft e da IBM, lançados em 1991. Armazena o audio sem compressão; portanto, os arquivos  .wav são bem maiores que os  dos outros formatos, embora a qualidade sonora também seja melhor.</li>
+    </ul>
+
+    <h2>Exemplo de Audio</h2>
+    <!--preload - precarrega algumas informações possiveis. Pode conter:
+        metadata - carrega só informações sobre o arquivo
+        none - não carrega nada antecipadamente
+        auto (padrão) - carrega o audio inteiro-->
+
+    <audio preload="metadata" controls src="Arquivos/audio/trilha.mp3"></audio>
+        
+    <h2>Exemplos de audio com multilplas fontes</h2>
+
+    <audio preload="metadata" controls>
+        <source src="Arquivos/audio/trilha.mp3" type="audio/mpeg">
+        <source src="Arquivos/audio/trilha.ogg" type="audio/ogg">
+        <source src="Arquivos/audio/trilha.wav" type="audio/wav">
+            
+    </audio>
+    
+</body>
+</html>

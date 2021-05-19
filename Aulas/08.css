@@ -1,0 +1,13 @@
+a{
+    color: orangered;
+    text-decoration: none;
+}
+a:visited{
+    color: green;
+    
+}
+a:hover{
+    color: magenta;
+    filter: brightness(10%);
+    text-decoration: underline;
+}
