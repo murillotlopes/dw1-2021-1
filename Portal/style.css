@@ -28,6 +28,8 @@
     /* Família de fontes da web (webfonts) */
     font-family: Raleway, Calibri, Arial, sans;
     font-size: 16px;
+    /* Faz com que bordas e margens sejam considerados no tamanho total do elemento */
+    box-sizing: border-box;
     
 }
 html {                  /* Tamanho de fonte padrão do documento */
@@ -53,29 +55,29 @@ header {
 }
 
 #social {
-    background-color: transparent;
+    background-color: transparent;  /* Tira a cor de fundo */
     display: flex;
     align-items: center;
 }
 
-#social a span{
-    margin-left: 6px;
-    display: none;
-}
-
-#social a:hover span{
-    display: inline;
-}
-
-#social img{
+#social img {
     width: 32px;
 }
 
-#social a{
-    color: #ffffff;
+#social a {
+    color: #FFFFFF;
     text-decoration: none;
     display: flex;
     align-items: center;
+}
+
+#social a span {
+    margin-left: 6px;
+    display: none; /* Esconder o texto dos links */
+}
+
+#social a:hover span {
+    display: inline;  /* Mostra novamente o texto ao passar o mouse */  
 }
 
 nav ul li {
@@ -88,24 +90,25 @@ nav {
     color: var(--cor-texto-claro);             /* Cor do texto */
 }
 
-#menu{
+#menu {
     padding: 0 20px;
 }
 
-#menu li{
+#menu li {
     margin: 10px 0;
 }
 
-#menu a{
+#menu a {
     height: 100%;
     padding: 10px 20px;
-    color: #ffffff;
-    transition: 0.3s;
+    color: #FFFFFF;
+    transition: 300ms;
     background-color: var(--cor-secundaria);
 }
 
-#menu a:hover{
-    filter: brightness(0.8);
+#menu a:hover {
+    filter: brightness(0.8); /* Diminui o brilho em 20%, deixando mais escuro */
+    text-decoration: none;
 }
 
 #content {
@@ -113,7 +116,7 @@ nav {
     padding: 20px;
     /* Este elemento e seus filhos usarão flexbox */
     display: flex;
-    flex-direction: row; /* Os filhos ficarão em linha */
+    flex-direction: row; /* Os filhos ficarão em linha, na horizontal */
 }
 
 main, aside {
@@ -125,6 +128,7 @@ main, aside {
     /* Sombra (drop-down shadow) */
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
     flex-grow: 1;   /* 1 unidade de largura (padrão) */
+    max-width: 100%;
 }
 
 main {
@@ -187,11 +191,13 @@ article > h2 {
     width: 450px;
     margin-right: 24px;
     border-radius: 4px;
+    /* Largura máxima limitada à largura do pai */
+    max-width: 100%;
 }
 
 .foto-texto {
     display: flex;
-    flex-direction: row; /* Os filhos ficarão em linha */
+    flex-direction: row; /* Os filhos ficarão em linha, na horizontal */
 }
 
 aside > article > img {
@@ -200,6 +206,8 @@ aside > article > img {
        display: block */
     margin: 0 auto;
     border-radius: 4px; /* Borda arredondada */ 
+    /* Largura máxima é 100% da largura do pai */
+    max-width: 100%;
 }
 
 aside > article > h1 > a {
@@ -232,11 +240,71 @@ footer ul li {
     border-right: 2px solid #ffffff;
 }
 
-footer ul li:last-child{
+/* Tirar a borda direita do último li */
+footer ul li:last-child {
     border-right: none;
 }
 
-footer img{
+footer img {
     width: 200px;
     height: 100%;
+}
+
+/* Regras para larguras específicas de tela */
+@media screen and (max-width: 1020px) {  /* Breakpoint (ponto de quebra) */
+    main {
+        width: 60%;
+    }
+    aside {
+        width: 40%;
+    }
+    .foto-texto {
+        flex-direction: column; /* Os filhos ficarão em coluna, na vertical */
+    }
+    .destaque img {
+        margin-right: 0;
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    /*
+        A FAZER: Colocar o menu em um botão
+    */
+    #content {
+        flex-direction: column; /* Os filhos ficarão em coluna, na vertical */
+    }
+    main {
+        width: 100%;
+    }
+    aside {
+        margin-left: 0;
+        width: 100%;
+    }
+    aside > article > h1 {
+        text-align: center;
+    }
+    .destaque img {
+        /* Centralizar a imagem */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    footer {
+        flex-direction: column;
+    }
+    footer > * {    /* Todos os filhos DIRETOS de footer */
+        margin-bottom: 12px;
+    }
+    footer ul li:first-child {  /* Só o primeiro (first-child) li */
+        padding-left: 0;
+    }
+    footer address {
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    /*
+        A FAZER: colocar o logo principal e os ícones de redes sociais em coluna
+    */
 }
