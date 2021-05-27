@@ -104,12 +104,53 @@ nav {
     color: #FFFFFF;
     transition: 300ms;
     background-color: var(--cor-secundaria);
+    margin-top: 48px;
 }
 
 #menu a:hover {
     filter: brightness(0.8); /* Diminui o brilho em 20%, deixando mais escuro */
     text-decoration: none;
 }
+
+#menu-contraido {    
+    display: inline-block;    
+    position: relative;
+}
+
+#menu-contraido input, #menu-contraido span {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#menu-contraido input {
+    z-index: 100; /* Traz o input para cima */ 
+    opacity: 0; /* Esconde o input */
+    display: none;  
+}
+
+#menu-contraido span {
+    display: block;
+    background-color: var(--cor-primaria);
+    border-radius: 4px;
+    border: 2px solid #FFFFFF;
+    background-image: url('img/menu-icon-48x48.png');
+    background-size: 40px 40px;
+    background-position: center center;
+    cursor: pointer; /* Cursor de mãozinha */
+    display: none;
+    
+}
+
+/* Seletor ~: seleciona o próximo elemento (irmão) */
+#menu-contraido input:checked ~ span {
+    /* Troca a imagem */
+    background-image: url('img/close-icon-48x48.png');
+}
+
+
 
 #content {
     background-color: var(--cor-fundo-clara);
@@ -268,9 +309,38 @@ footer img {
 }
 
 @media screen and (max-width: 800px) {
-    /*
-        A FAZER: Colocar o menu em um botão
-    */
+    #menu{
+        min-height: 88px;
+    }
+
+    #menu ul{
+        margin-top: 50px;
+        margin-left: -18px;
+        
+    }
+
+    #menu ul li {
+        display: block;
+        margin: 0;
+        padding: 12px 0;
+    }
+
+    #menu-contraido{
+        margin-top: 24px;
+    }
+    
+    #menu-contraido ul{
+        display: none;
+    }
+
+    #menu-contraido input, #menu-contraido span{
+        display: block;
+    }
+
+    #menu-contraido input:checked ~ ul{
+        display: block;
+    }
+
     #content {
         flex-direction: column; /* Os filhos ficarão em coluna, na vertical */
     }
